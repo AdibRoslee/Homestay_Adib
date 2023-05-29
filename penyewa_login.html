@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homestay Perlis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .slideshow-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .slideshow {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 66%;
+        }
+
+        .slideshow img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="w3-row w3-container w3-teal">
+        <h2><b>INAP DI PERLIS</b></h2>
+        <p>Kenikmatan kehidupan di desa di Perlis</p>
+    </div>
+    <div class="w3-black w3-mobile">
+        <a href="index.html" class="w3-bar-item w3-button w3-mobile">Home</a>
+        <?php if(empty($_SESSION["nama_penyewa"])): ?>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button w3-black">Log In</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                    <a href="penyewa_daftar.html" class="w3-bar-item w3-button">Sign Up</a>
+                    <a href="penyewa_login.html" class="w3-bar-item w3-button">Log In</a>
+                </div>
+            </div>
+        <?php else: ?>
+            <a href="logout.php" class="w3-bar-item w3-button w3-right w3-margin-right w3-red">Log out</a>
+            <a href="penyewa_senarai_tempahan.php" class="w3-bar-item w3-button w3-right w3-margin-right"><?php echo $_SESSION['nama_penyewa']; ?></a>
+        <?php endif; ?>
+    </div>
+
+    <div class="w3-row w3-margin-top">
+        <div class="w3-third w3-container">
+            <div class="w3-container">
+                <div class="w3-container w3-teal w3-round-large">
+                    <h4 class="w3-tulisan-p2">Log In</h4>
+                </div>
+                <div class="w3-container w3-card w3-padding">
+                    <form action="index.php" method="POST">
+                        <label class="w3-text-black">Identity Card No.</label>
+                        <input class="w3-input w3-border w3-round-xxlarge w3-large" type="text" name="nokp">
+                        <label class="w3-text-black">Password</label>
+                        <input class="w3-input w3-border w3-round-xxlarge w3-large" type="password" name="katalaluan">
+                        <br>
+                        <a  href='index.html'class="w3-button w3-red w3-round-xxlarge w3-margin-bottom">Log In</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="w3-twothird w3-container">
+            <div class="slideshow-container">
+                <div class="slideshow">
+                    <img src="gambar/images.jpg">
+                    <img src="gambar/1986343.jpg">
+                    <img src="gambar/199610601.jpg">
+                    <img src="gambar/Udaya-Homestay-KB-92-6506.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var slides = document.querySelectorAll('.slideshow img');
+        var currentSlide = 0;
+        var slideInterval = setInterval(nextSlide, 2000);
+
+        function nextSlide() {
+            slides[currentSlide].style.display = 'none';
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.display = 'block';
+        }
+    </script>
+
+    <hr class="w3-clear">
+    <div class="w3-container w3-teal w3-margin-top">
+        <h5>Nikmati keindahan Desa Perlis</h5>
+    </div>
+</body>
+</html>

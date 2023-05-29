@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homestay Perlis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .w3-tulisan-p2 {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class='w3-row w3-container w3-teal'>
+        <h2><b>INAP DI PERLIS</b></h2>
+        <p>Kenikmatan kehidupan di desa di Perlis</p>
+    </div>
+    <div class='w3-black w3-mobile'>
+        <a href='index.php' class='w3-bar-item w3-button w3-mobile'>Home</a>
+        <?php if(empty($_SESSION["nama_penyewa"])): ?>
+            <div class='w3-dropdown-hover'>
+                <button class='w3-button w3-black'>Log In</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                    <a href='penyewa_daftar.html' class='w3-bar-item w3-button'>Sign Up</a>
+                    <a href='penyewa_login.html' class='w3-bar-item w3-button'>Log In</a>
+                </div>
+            </div>
+        <?php else: ?>
+            <a href='logout.php' class='w3-bar-item w3-button w3-right w3-margin-right w3-red'>Log out</a>
+            <a href='penyewa_senarai_tempahan.php' class='w3-bar-item w3-button w3-right w3-margin-right'><?php echo $_SESSION['nama_penyewa']; ?></a>
+        <?php endif; ?>
+    </div>
+    <div class='w3-row w3-margin'>
+        <div class='w3-quarter w3-container w3-margin-bottom'>
+            <h4 class='w3-tulisan-p2'>Reservation</h4>
+        </div>
+        <div class='w3-container w3-card-2 w3-white w3-small' style='max-width: 300px;'>
+            <form class='w3-form w3-margin-bottom' action='tempahan_senarai.php' method='POST'>
+                <label class='w3-tulisan-p2'>Check In</label>
+                <input type='date' name='tarikh_masuk' class='w3-input w3-border w3-round-xlarge w3-large' required value='<?php echo $tarikh_masuk; ?>' min='<?php echo $tarikh_masuk; ?>'>
+                <label class='w3-tulisan-p2'>Check Out</label>
+                <input type='date' name='tarikh_keluar' class='w3-input w3-border w3-round-xlarge w3-large' required value='<?php echo $tarikh_keluar; ?>' min='<?php echo $tarikh_keluar; ?>'>
+                
+                <h4></h4>
+                <button class="w3-button w3-block w3-red w3-round-xxlarge" onclick="redirectToAnotherPage()">Search</button>
+
+<script>
+    function redirectToAnotherPage() {
+        window.location.href = "tempahan_senarai.html";
+    }
+</script>
+
+            </form>
+        </div>
+    </div>
+    <style>
+        .container {
+            max-width: 6000px;
+            margin: 0 auto; 
+        }
+    </style>
+    <script>
+        function opentab(evt, perkara) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("city");
+            for(i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for(i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+            }
+            document.getElementById(perkara).style.display = "block";
+            evt.currentTarget.className += " w3-red";
+        }
+    </script>
+</head>
+<body>
+    <div class='w3-threequarter w3-container w3-margin-bottom'>
+        <div class='w3-card-4 container'>
+            <div class="w3-bar w3-teal w3-mobile">
+                <button class="w3-bar-item w3-button tablink w3-red" onclick="opentab(event,'homestay')">Homestay Address</button>
+                <button class="w3-bar-item w3-button tablink" onclick="opentab(event,'kemudahan')">Facilities</button>
+                <button class="w3-bar-item w3-button tablink" onclick="opentab(event,'tempatmenarik')">Interesting places in Perlis</button>
+            </div>
+
+            <div id="homestay" class="w3-container w3-border city">
+                <h2>Homestay</h2>
+                <hr class='w3-clear'>
+                <p><span class="w3-badge w3-red">1</span>Gunung Wang Burma, Perlis</p>
+                <p><span class="w3-badge w3-red">2</span>Simpang Empat, Perlis</p>
+                <p><span class="w3-badge w3-red">3</span>Padang Besar, Perlis</p>
+                <p><span class="w3-badge w3-red">4</span>Gua Kelam, Perlis</p>
+            </div>
+
+            <div id="kemudahan" class="w3-container w3-border city" style="display:none">
+                <h2>Facilities</h2>
+                <hr class='w3-clear'>
+                <p><span class="w3-badge w3-red">1</span>Comfortable Accommodation</p>
+                <p><span class="w3-badge w3-red">2</span>Basic Kitchen Facilities</p>
+                <p><span class="w3-badge w3-red">3</span>Private Bathroom</p>
+                <p><span class="w3-badge w3-red">4</span>Wi-Fi and Entertainment Options</p>
+            </div>
+
+            <div id="tempatmenarik" class="w3-container w3-border city" style="display:none">
+                <h2>Interesting places in Perlis</h2>
+                <hr class='w3-clear'>
+                <p><span class="w3-badge w3-red">1</span>Gua Kelam</p>
+                <p><span class="w3-badge w3-red">2</span>Padang Besar</p>
+                <p><span class="w3-badge w3-red">3</span>Permandangan Indah Tasik Timah Tasoh</p>
+                <p><span class="w3-badge w3-red">4</span>Taman Ular, Sg Batu Pahat</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+            <div id="homestay" class="w3-container w3-border city">
+                <h2>Homestay</h2>
+                <hr class='w3-clear'>
+                <p><span class="w3-badge w3-red">1</span>Gunung Wang Burma, Perlis</p>
+                <p><span class="w3-badge w3-red">2</span>Simpang Empat, Perlis</p>
+                <p><span class="w3-badge w3-red">3</span>Padang Besar, Perlis</p>
+                <p><span class="w3-badge w3-red">4</span>Gua Kelam, Perlis</p>
+            </div>
+
+            <div id="kemudahan" class="w3-container w3-border city" style="display:none">
+                <h2>Facilities</h2>
+                <hr class='w3-clear'>
+                <p><span class="w3-badge w3-red">1</span>Comfortable Accommodation</p>
+                <p><span class="w3-badge w3-red">2</span>Basic Kitchen Facilities</p>
+                <p><span class="w3-badge w3-red">3</span>Private Bathroom</p>
+                <p><span class="w3-badge w3-red">4</span>Wi-Fi and Entertainment Options</p>
+            </div>
+
+            <div id="tempatmenarik" class="w3-container w3-border city" style="display:none">
+                <h2>Interesting places in Perlis</h2>
+                <hr class='w3-clear'>
+                <p><span class="w3-badge w3-red">1</span>Gua Kelam</p>
+                <p><span class="w3-badge w3-red">2</span>Padang Besar</p>
+                <p><span class="w3-badge w3-red">3</span>Permandangan Indah Tasik Timah Tasoh</p>
+                <p><span class="w3-badge w3-red">4</span>Taman Ular, Sg Batu Pahat</p>
+            </div>
+        </div>
+
+        <div class='w3-container'>
+            <div class='w3-container w3-teal w3-center'>
+                <h4>Promotion</h4>
+            </div>
+
+            <div class='w3-row w3-center w3-card'>
+                <div class='w3-container w3-quarter w3-margin-top w3-margin-bottom'>
+                    <img class='w3-image' src='gambar/Udaya-Homestay-KB-92-6506.jpg'>
+                    <a href='link_to_file1.html' class='button' style='font-weight: bold; color: red;'>RM250</a>
+                </div>
+                <div class='w3-container w3-quarter w3-margin-top w3-margin-bottom'>
+                    <img class='w3-image' src='gambar/1986343.jpg'>
+                    <a href='link_to_file2.html' class='button' style='font-weight: bold; color: red;'>RM200</a>
+                </div>
+                <div class='w3-container w3-quarter w3-margin-top w3-margin-bottom'>
+                    <img class='w3-image' src='gambar/199610601.jpg'>
+                    <a href='link_to_file3.html' class='button' style='font-weight: bold; color: red;'>RM350</a>
+                </div>
+                <div class='w3-container w3-quarter w3-margin-top w3-margin-bottom'>
+                    <img class='w3-image' src='gambar/images.jpg'>
+                    <a href='link_to_file4.html' class='button' style='font-weight: bold; color: red;'>RM150</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class='w3-row w3-center w3-card w3-text-grey'>
+                <div class='w3-container w3-third w3-margin-bottom w3-margin-top'>
+                    <h4><b>Cost-Effective Accommodation</b></h4>
+                    <p><i>An affordable homestay allows travelers to save money on accommodation expenses. Compared to hotels or resorts, homestays often provide a more budget-friendly option without compromising on comfort and basic amenities.</i></p>
+                </div>
+                <div class='w3-container w3-third w3-margin-bottom w3-margin-top'>
+                    <h4><b>Authentic Cultural Experience</b></h4>
+                    <p><i>We provide a unique and immersive cultural experience, allowing guests to interact with local hosts and experience the local way of life. Staying with a host family can provide insights into local customs, traditions, and cuisine.</i></p>
+                </div>
+                <div class='w3-container w3-third w3-margin-bottom w3-margin-top'>
+                    <h4><b>Personalized Service</b></h4>
+                    <p><i>We are welcoming, providing personalized attention to our guests. We can offer insider tips, recommendations, and guidance on exploring the local area, making you feel more at home and enhancing your overall experience.</i></p>
+                </div>
+            </div>
+        </div>
+
+        <hr class='w3-clear'>
+        <div class='w3-container w3-teal w3-margin-top'>
+            <h5>Nikmati keindahan Desa Perlis</h5>
+        </div>
+    </body>
+    </html>

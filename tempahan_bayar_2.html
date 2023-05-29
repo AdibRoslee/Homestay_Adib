@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homestay Perlis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class='w3-row w3-container w3-teal'>
+        <h2><b>INAP DI PERLIS</b></h2>
+        <p>Kenikmatan kehidupan di desa di Perlis</p>
+    </div>
+    <div class='w3-black w3-mobile'>
+        <a href='index.html' class='w3-bar-item w3-button w3-mobile'>Home</a>
+        <div class='w3-dropdown-hover'>
+            <button class='w3-button w3-black'>Log In</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a href='penyewa_daftar.html' class='w3-bar-item w3-button'>Sign Up</a>
+                <a href='penyewa_login.html' class='w3-bar-item w3-button'>Log In</a>
+            </div>
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-quater w3-container">
+
+        </div>
+        <div class="w3-half w3-container w3-margin-top w3-card-2">
+            <div class='w3-margin w3-animate-opacity'>
+                <h4>Reservation Information</h4>
+                <label><b>Inapan Desa</b></label><br>
+                <br>
+                <label><b> House No. : 30 </b></label><br>
+                <label><b>Address : Simpang Empat, Perlis </b></label><br>
+                <label><b>Total Fee : RM200 </b></label> <br>
+
+                <h4>Payment by card</h4>
+                <hr>
+                <form>
+                    <table class='w3-table w3-striped'>
+                        <tr>
+                            <td colspan='3'>
+                                <input class='w3-input w3-border w3-round-xxlarge' type='text' name='name_on_card' placeholder='Cardholder name'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan='3'>
+                                <input class='w3-input w3-border w3-round-xxlarge' type='text' name='card_no' placeholder='Card number' maxlength='12'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class='w3-input w3-border w3-round-xxlarge' size='3' maxlength='2' type='text' name='mm' placeholder='MM'>
+                            </td>
+                            <td>
+                                <input class='w3-input w3-border w3-round-xxlarge' size='3' maxlength='4' type='text' name='yy' placeholder='YYYY'>
+                            </td>
+                            <td>
+                                <input class='w3-input w3-border w3-round-xxlarge' size='3' maxlength='3' type='text' name='cc' placeholder='CCV'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan='3'>
+                                <input class='w3-input w3-border w3-round-xxlarge' type='text' name='alamat' placeholder='Email Address'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan='3'>
+                                <input class='w3-input w3-border w3-round-xxlarge' maxlength='5' type='text' name='poskod' placeholder='Billing Address'>
+                            </td>
+                        </tr>
+                    </table>
+                    <hr>
+                    <a class="w3-button w3-round-xxlarge w3-red w3-bar" type='submit' onclick="return confirm('Payment confirmation')" value='Pay' href='tempahan_resit.html'>Reserve</a>
+                </form>
+            </div>
+        </div>
+        <div class="w3-quarter w3-container">
+
+        </div>
+    </div>
+    <hr class='w3-clear'>
+    <div class='w3-container w3-teal w3-margin-top'>
+        <h5>Nikmati keindahan Desa Perlis</h5>
+    </div>
+</body>
+</html>
